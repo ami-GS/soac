@@ -64,7 +64,6 @@ func NewChanger() Changer {
 }
 
 func (self *Changer) Out() string {
-	fmt.Println("%v", self.p)
 	return fmt.Sprintf("\x1b[%d;%d;%dm%v\x1b[0m", self.p.attr, self.p.fg, self.p.bg, self.val)
 }
 
