@@ -49,8 +49,8 @@ type Param struct {
 	bg   BackGround
 }
 
-func NewParam() Param {
-	return Param{39, 0, 49}
+func NewParam() *Param {
+	return &Param{39, 0, 49}
 }
 
 type Changer struct {
@@ -58,9 +58,8 @@ type Changer struct {
 	p   *Param
 }
 
-func NewChanger() Changer {
-	p := NewParam()
-	return Changer{"", &p}
+func NewChanger() *Changer {
+	return &Changer{"", NewParam()}
 }
 
 func (self *Changer) Out() string {
@@ -73,8 +72,7 @@ func (self *Changer) Set(val interface{}) *Changer {
 }
 
 func (self *Changer) Reset() {
-	p := NewParam()
-	self.p = &p
+	self.p = NewParam()
 }
 
 func (self *Changer) Black() *Changer {
