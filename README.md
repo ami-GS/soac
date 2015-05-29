@@ -21,7 +21,8 @@ c.Reset() //back to default
 * Cyan
 * White
 
-
+#### TODO
+* Set by arguments
 
 #### Licence
 The MIT License (MIT) Copyright (c) 2015 ami-GS
