@@ -9,38 +9,38 @@ type Attribute byte
 type BackGround byte
 
 const (
-	black Color = iota + 30
-	red
-	green
-	yellow
-	blue
-	magenda
-	cyan
-	white
+	Black Color = iota + 30
+	Red
+	Green
+	Yellow
+	Blue
+	Magenda
+	Cyan
+	White
 )
 
 const (
-	reset Attribute = iota
-	bold
-	faint
-	italic
-	underline
-	blink1
-	blink2
-	reverse
-	concealed
-	crossedout
+	Reset Attribute = iota
+	Bold
+	Faint
+	Italic
+	Underline
+	Blink1
+	Blink2
+	Reverse
+	Concealed
+	Crossedout
 )
 
 const (
-	bgBlack BackGround = iota + 40
-	bgRed
-	bgGreen
-	bgYellow
-	bgBlue
-	bgMagenda
-	bgCyan
-	bgWhite
+	BgBlack BackGround = iota + 40
+	BgRed
+	BgGreen
+	BgYellow
+	BgBlue
+	BgMagenda
+	BgCyan
+	BgWhite
 )
 
 type Changer struct {
@@ -64,126 +64,126 @@ func (self *Changer) Reset() {
 }
 
 func (self *Changer) Black() *Changer {
-	self.fg = black
+	self.fg = Black
 	return self
 }
 
 func (self *Changer) Red() *Changer {
-	self.fg = red
+	self.fg = Red
 	return self
 }
 
 func (self *Changer) Green() *Changer {
-	self.fg = green
+	self.fg = Green
 	return self
 }
 
 func (self *Changer) Yellow() *Changer {
-	self.fg = yellow
+	self.fg = Yellow
 	return self
 }
 
 func (self *Changer) Blue() *Changer {
-	self.fg = blue
+	self.fg = Blue
 	return self
 }
 
 func (self *Changer) Magenda() *Changer {
-	self.fg = magenda
+	self.fg = Magenda
 	return self
 }
 
 func (self *Changer) Cyan() *Changer {
-	self.fg = cyan
+	self.fg = Cyan
 	return self
 }
 
 func (self *Changer) White() *Changer {
-	self.fg = white
+	self.fg = White
 	return self
 }
 
 func (self *Changer) Bold() *Changer {
-	self.attr = bold
+	self.attr = Bold
 	return self
 }
 
 func (self *Changer) Faint() *Changer {
-	self.attr = faint
+	self.attr = Faint
 	return self
 }
 
 func (self *Changer) Italic() *Changer {
-	self.attr = italic
+	self.attr = Italic
 	return self
 }
 
 func (self *Changer) Underline() *Changer {
-	self.attr = underline
+	self.attr = Underline
 	return self
 }
 
 func (self *Changer) Blink1() *Changer {
-	self.attr = blink1
+	self.attr = Blink1
 	return self
 }
 
 func (self *Changer) Blink2() *Changer {
-	self.attr = blink2
+	self.attr = Blink2
 	return self
 }
 
 func (self *Changer) Reverse() *Changer {
-	self.attr = reverse
+	self.attr = Reverse
 	return self
 }
 
 func (self *Changer) Concealed() *Changer {
-	self.attr = concealed
+	self.attr = Concealed
 	return self
 }
 
 func (self *Changer) CrossedOut() *Changer {
-	self.attr = crossedout
+	self.attr = Crossedout
 	return self
 }
 
 func (self *Changer) Bblack() *Changer {
-	self.bg = bgBlack
+	self.bg = BgBlack
 	return self
 }
 
 func (self *Changer) Bred() *Changer {
-	self.bg = bgRed
+	self.bg = BgRed
 	return self
 }
 
 func (self *Changer) Bgreen() *Changer {
-	self.bg = bgGreen
+	self.bg = BgGreen
 	return self
 }
 
 func (self *Changer) Byellow() *Changer {
-	self.bg = bgYellow
+	self.bg = BgYellow
 	return self
 }
 
 func (self *Changer) Bblue() *Changer {
-	self.bg = bgBlue
+	self.bg = BgBlue
 	return self
 }
 
 func (self *Changer) Bmagenda() *Changer {
-	self.bg = bgMagenda
+	self.bg = BgMagenda
 	return self
 }
 
 func (self *Changer) Bcyan() *Changer {
-	self.bg = bgCyan
+	self.bg = BgCyan
 	return self
 }
 
 func (self *Changer) Bwhite() *Changer {
-	self.bg = bgWhite
+	self.bg = BgWhite
 	return self
 }
