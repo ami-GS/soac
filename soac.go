@@ -8,6 +8,10 @@ type Color byte
 type Attribute byte
 type BackGround byte
 
+type AttrFactor interface {
+	Get() int
+}
+
 const (
 	Black Color = iota + 30
 	Red
@@ -18,6 +22,10 @@ const (
 	Cyan
 	White
 )
+
+func (c Color) Get() int {
+	return int(c)
+}
 
 const (
 	Reset Attribute = iota
@@ -32,6 +40,10 @@ const (
 	Crossedout
 )
 
+func (a Attribute) Get() int {
+	return int(a)
+}
+
 const (
 	BgBlack BackGround = iota + 40
 	BgRed
@@ -42,6 +54,10 @@ const (
 	BgCyan
 	BgWhite
 )
+
+func (b BackGround) Get() int {
+	return int(b)
+}
 
 type Changer struct {
 	fg   Color
@@ -55,6 +71,21 @@ func NewChanger() *Changer {
 
 func (self *Changer) Apply(val interface{}) string {
 	return fmt.Sprintf("\x1b[%d;%d;%dm%v\x1b[0m", self.attr, self.fg, self.bg, val)
+}
+
+func (self *Changer) Set(factors ...AttrFactor) {
+	for _, factor := range factors {
+		i := factor.Get()
+		if 0 <= i && i <= 9 {
+			self.attr = Attribute(i)
+		} else if 30 <= i && i <= 37 {
+			self.fg = Color(i)
+		} else if 40 <= i && i <= 47 {
+			self.bg = BackGround(i)
+		} else {
+			// return error or emit warnning
+		}
+	}
 }
 
 func (self *Changer) Reset() {
