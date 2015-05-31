@@ -39,6 +39,17 @@ class Changer:
     def apply(self, val):
         return "\x1b[%d;%d;%dm%s\x1b[0m" % (self.attr, self.color, self.bg, val) 
 
+    def set(self, *settings):
+        for s in settings:
+            if 0 <= s <= 9:
+                self.attr = s
+            elif 30 <= s <= 37:
+                self.color = s
+            elif 40 <= s <= 47:
+                self.bg = s
+            else:
+                pass #return error or emit warnning
+
     def black(self):
         self.color = COLOR.BLACK
         return self
