@@ -60,17 +60,21 @@ func (b BackGround) Get() int {
 }
 
 type Changer struct {
-	fg   Color
-	attr Attribute
-	bg   BackGround
+	fg    Color
+	attr  Attribute
+	bg    BackGround
+	is256 bool
 }
 
 func NewChanger() *Changer {
-	return &Changer{39, 0, 49}
+	return &Changer{39, 0, 49, false}
 }
 
 func (self *Changer) Apply(val interface{}) string {
-	return fmt.Sprintf("\x1b[%d;%d;%dm%v\x1b[0m", self.attr, self.fg, self.bg, val)
+	if !self.is256 {
+		return fmt.Sprintf("\x1b[%d;%d;%dm%v\x1b[0m", self.attr, self.fg, self.bg, val)
+	}
+	return fmt.Sprintf("\x1b[%d;38;5;%d;%dm%v\x1b[0m", self.attr, self.fg, self.bg, val)
 }
 
 func (self *Changer) Set(factors ...AttrFactor) {
@@ -80,6 +84,7 @@ func (self *Changer) Set(factors ...AttrFactor) {
 			self.attr = Attribute(i)
 		} else if 30 <= i && i <= 37 {
 			self.fg = Color(i)
+			self.is256 = false
 		} else if 40 <= i && i <= 47 {
 			self.bg = BackGround(i)
 		} else {
@@ -88,49 +93,63 @@ func (self *Changer) Set(factors ...AttrFactor) {
 	}
 }
 
+func (self *Changer) Set256(color byte) {
+	self.fg = Color(color)
+	self.is256 = true
+}
+
 func (self *Changer) Reset() {
 	self.fg = 39
 	self.attr = 0
 	self.bg = 49
+	self.is256 = false
 }
 
 func (self *Changer) Black() *Changer {
 	self.fg = Black
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Red() *Changer {
 	self.fg = Red
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Green() *Changer {
 	self.fg = Green
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Yellow() *Changer {
 	self.fg = Yellow
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Blue() *Changer {
 	self.fg = Blue
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Magenda() *Changer {
 	self.fg = Magenda
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) Cyan() *Changer {
 	self.fg = Cyan
+	self.is256 = false
 	return self
 }
 
 func (self *Changer) White() *Changer {
 	self.fg = White
+	self.is256 = false
 	return self
 }
 
