@@ -12,6 +12,7 @@ c.Reset() //back to default
 ```
 
 ### Supported colors
+##### Basic 8 colors
 * Black
 * Red
 * Green
@@ -21,8 +22,11 @@ c.Reset() //back to default
 * Cyan
 * White
 
+##### 256 colors
+The list are [here](http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html)
+
 #### TODO
-* Set by arguments
+* Improve codes
 
 #### Licence
 The MIT License (MIT) Copyright (c) 2015 ami-GS
