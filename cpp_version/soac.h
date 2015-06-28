@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 typedef uint8_t COLOR;
 typedef uint8_t ATTRIBUTE;
@@ -47,5 +48,10 @@ public:
     BACKGROUND bg;
 
     Changer() : color(39), attr(0), bg(49) {} 
- 
+    std::string Apply(std::string str) {
+        return "";
+    }
+    std::string Apply(int val) {
+        return "";
+    }
 };
