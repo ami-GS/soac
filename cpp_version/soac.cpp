@@ -1,0 +1,5 @@
+#include "soac.h"
+
+int main() {
+    return 0;
+}
