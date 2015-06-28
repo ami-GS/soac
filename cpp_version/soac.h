@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <sstream>
 
 typedef uint8_t COLOR;
 typedef uint8_t ATTRIBUTE;
@@ -43,15 +44,22 @@ enum {
 
 class Changer {
 public:
-    COLOR color;
+    COLOR fg;
     ATTRIBUTE attr;
     BACKGROUND bg;
+    std::stringstream tmp;
 
-    Changer() : color(39), attr(0), bg(49) {} 
+    Changer() : fg(39), attr(0), bg(49) {}
     std::string Apply(std::string str) {
-        return "";
+        tmp << "\x1b[" << attr << ";" << fg << ";" << bg << "m%v\x1b[0m";
+        std::string tmptmp = tmp.str();
+        tmp.str("");
+        return tmptmp;
     }
     std::string Apply(int val) {
-        return "";
+        tmp << "\x1b[" << attr << ";" << fg << ";" << bg << "m%v\x1b[0m";
+        std::string tmptmp = tmp.str();
+        tmp.str("");
+        return tmptmp;
     }
 };
