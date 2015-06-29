@@ -20,13 +20,13 @@ enum {
 enum {
     Reset,
     Bold,
-    Failt,
+    Faint,
     Italic,
     Underline,
     Blink1,
     Blink2,
     Reverse,
-    ConCealed,
+    Concealed,
     Crossedout,
 };
 
