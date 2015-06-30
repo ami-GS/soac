@@ -107,46 +107,42 @@ Changer* Changer::crossedout() {
 }
 
 Changer* Changer::bgBlack() {
-    fg = BgBlack;
+    bg = BgBlack;
     return this;
 }
 
 Changer* Changer::bgRed() {
-    fg = BgRed;
+    bg = BgRed;
     return this;
 }
 
 
 Changer* Changer::bgGreen() {
-    fg = BgGreen;
+    bg = BgGreen;
     return this;
 }
 
 Changer* Changer::bgYellow() {
-    fg = BgYellow;
+    bg = BgYellow;
     return this;
 }
 
 Changer* Changer::bgBlue() {
-    fg = BgBlue;
+    bg = BgBlue;
     return this;
 }
 
 Changer* Changer::bgMagenda() {
-    fg = BgMagenda;
+    bg = BgMagenda;
     return this;
 }
 
 Changer* Changer::bgCyan() {
-    fg = BgCyan;
+    bg = BgCyan;
     return this;
 }
 
 Changer* Changer::bgWhite() {
-    fg = BgWhite;
+    bg = BgWhite;
     return this;
-}
-
-int main() {
-    return 0;
 }
