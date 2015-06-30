@@ -5,9 +5,9 @@
 #include <string.h>
 #include <sstream>
 
-typedef uint8_t COLOR;
-typedef uint8_t ATTRIBUTE;
-typedef uint8_t BACKGROUND;
+typedef uint16_t COLOR;
+typedef uint16_t ATTRIBUTE;
+typedef uint16_t BACKGROUND;
 
 enum {
     Black = 30,
