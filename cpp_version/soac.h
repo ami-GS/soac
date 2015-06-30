@@ -1,3 +1,6 @@
+#ifndef _SOAC_H_
+#define _SOAC_H_
+
 #include <iostream>
 #include <string.h>
 #include <sstream>
@@ -82,3 +85,5 @@ public:
     Changer* bgCyan();
     Changer* bgWhite();
 };
+
+#endif // _SOAC_H_
